@@ -2,13 +2,13 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
-export class Author {
+export class Flow {
   @Field(() => Int)
   id: number;
 
   @Field(() => String)
-  firstName: string;
+  title: string;
 
   @Field(() => String)
-  lastName: string;
+  content: string;
 }

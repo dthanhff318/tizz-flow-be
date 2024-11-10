@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
-import { AuthorModule } from 'src/modules/author/author.module';
+import { FlowModule } from 'src/modules/flow/flow.module';
 
 @Module({
   imports: [
@@ -12,7 +12,7 @@ import { AuthorModule } from 'src/modules/author/author.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
-    AuthorModule,
+    FlowModule,
   ],
   controllers: [AppController],
   providers: [AppService],

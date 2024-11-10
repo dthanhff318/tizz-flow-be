@@ -2,12 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Author {
+type Flow {
   id: Int!
-  firstName: String!
-  lastName: String!
+  title: String!
+  content: String!
 }
 
 type Query {
-  author(id: Int!): Author
+  Flow(id: Int!): Flow
+}
+
+type Mutation {
+  CreateFlow(CreateFlowInput: CreateFlowInput!): Flow!
+}
+
+input CreateFlowInput {
+  title: String!
+  content: String!
 }
