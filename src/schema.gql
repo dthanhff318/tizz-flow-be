@@ -8,15 +8,35 @@ type Flow {
   content: String!
 }
 
+type User {
+  id: Int!
+  username: String!
+  passwords: String!
+  avatar: String!
+  displayName: String!
+}
+
 type Query {
   Flow(id: Int!): Flow
+  Login(LoginInput: LoginInput!): User
+}
+
+input LoginInput {
+  username: String!
+  password: String!
 }
 
 type Mutation {
   CreateFlow(CreateFlowInput: CreateFlowInput!): Flow!
+  Register(RegisterInput: RegisterInput!): User!
 }
 
 input CreateFlowInput {
   title: String!
   content: String!
+}
+
+input RegisterInput {
+  username: String!
+  password: String!
 }
