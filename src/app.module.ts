@@ -12,6 +12,7 @@ import { UserModule } from 'src/modules/user/user.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      path: 'tizz-flow',
     }),
     FlowModule,
     UserModule,

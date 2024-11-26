@@ -18,22 +18,22 @@ type User {
 
 type Query {
   Flow(id: Int!): Flow
-  Login(LoginInput: LoginInput!): User
-}
-
-input LoginInput {
-  username: String!
-  password: String!
 }
 
 type Mutation {
   CreateFlow(CreateFlowInput: CreateFlowInput!): Flow!
+  Login(input: LoginInput!): User
   Register(RegisterInput: RegisterInput!): User!
 }
 
 input CreateFlowInput {
   title: String!
   content: String!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
 }
 
 input RegisterInput {

@@ -1,5 +1,5 @@
 // src/services/author.service.ts
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import prisma from 'prisma/client';
 import { LoginInput, RegisterInput } from './user.dto';
 
@@ -13,10 +13,18 @@ export class UserService {
   }
   async login(loginInput: LoginInput) {
     const { username } = loginInput;
-    return await prisma.user.findFirst({
+    const user = await prisma.user.findFirst({
       where: {
         username,
       },
     });
+    if (!user) {
+      throw new HttpException(
+        'Username or password incorrect',
+        HttpStatus.BAD_REQUEST,
+      );
+    } else {
+      return user;
+    }
   }
 }
